@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StoneyCreek – Free Virtual Renderings This Summer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600&family=Open+Sans:wght@400;600&display=swap');
+
+  /*
+    BRAND PALETTE (from branding image):
+    Navy/Charcoal header bar : #1e2535
+    Logo red square          : #e03030
+    Logo yellow square       : #f5c520
+    Logo green square        : #4aab3e
+    Logo blue square         : #3a7bbf
+    Dark text                : #1a1a1a
+    Body text                : #444444
+    Light rule/bg            : #f2f2f2
+    White                    : #ffffff
+    CTA green (site button)  : #3a7bbf  (blue used on site CTAs)
+  */
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #e8e8e8;
+    font-family: 'Open Sans', sans-serif;
+    color: #1a1a1a;
+  }
+
+  .wrap {
+    max-width: 620px;
+    margin: 0 auto;
+    background: #ffffff;
+  }
+
+  /* ── LOGO BAR ── */
+  .logo-bar {
+    background: #ffffff;
+    padding: 18px 28px 16px;
+    border-bottom: 3px solid #1e2535;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .logo-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Four-color logo mark squares */
+  .logo-squares {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    width: 32px;
+    flex-shrink: 0;
+  }
+
+  .sq { width: 14px; height: 14px; border-radius: 1px; }
+  .sq-r { background: #e03030; }
+  .sq-y { background: #f5c520; }
+  .sq-g { background: #4aab3e; }
+  .sq-b { background: #3a7bbf; }
+
+  .logo-wordmark {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    color: #1a1a1a;
+    letter-spacing: -0.5px;
+    line-height: 1;
+  }
+
+  .logo-tagline {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #555;
+    margin-top: 3px;
+  }
+
+  .logo-right {
+    text-align: right;
+  }
+
+  .logo-right p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #888;
+    line-height: 1.5;
+  }
+
+  .made-usa-tag {
+    display: inline-block;
+    background: #1e2535;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 2px;
+    margin-top: 4px;
+  }
+
+  /* ── HERO HEADER BAR  (matches "Cool Idea of the Week" style) ── */
+  .hero-bar {
+    background: #1e2535;
+    padding: 22px 28px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* four-color accent line at top edge */
+  .hero-bar::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg,
+      #e03030 0% 25%,
+      #f5c520 25% 50%,
+      #4aab3e 50% 75%,
+      #3a7bbf 75% 100%
+    );
+  }
+
+  .hero-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 10px;
+  }
+
+  .hero-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    font-weight: 600;
+    color: #f5c520;
+  }
+
+  .hero-sub {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.65;
+    max-width: 430px;
+    margin-bottom: 20px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: #3a7bbf;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    border-radius: 3px;
+  }
+
+  /* ── COLOR BAR DIVIDER ── */
+  .color-bar {
+    height: 5px;
+    background: linear-gradient(90deg,
+      #e03030 0% 25%,
+      #f5c520 25% 50%,
+      #4aab3e 50% 75%,
+      #3a7bbf 75% 100%
+    );
+  }
+
+  /* ── INTRO NOTE ── */
+  .intro-note {
+    background: #f2f2f2;
+    padding: 16px 28px;
+    border-left: 4px solid #3a7bbf;
+    margin: 0;
+  }
+
+  .intro-note p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13.5px;
+    color: #444;
+    line-height: 1.65;
+  }
+
+  .intro-note strong { color: #1a1a1a; }
+
+  /* ── BODY SECTIONS ── */
+  .section {
+    padding: 32px 28px;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .section-gray {
+    background: #f7f7f7;
+  }
+
+  /* section header bar — matches "Cool Idea of the Week" header style */
+  .section-header {
+    background: #1e2535;
+    margin: -32px -28px 24px;
+    padding: 10px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-header .dot-row {
+    display: flex;
+    gap: 4px;
+  }
+
+  .section-header .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+  }
+
+  .section-header h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    text-transform: uppercase;
+  }
+
+  .section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    color: #1a1a1a;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+
+  .section p {
+    font-size: 14px;
+    line-height: 1.75;
+    color: #444;
+    margin-bottom: 12px;
+  }
+
+  .section p:last-child { margin-bottom: 0; }
+
+  /* offer box */
+  .offer-box {
+    border: 2px solid #1e2535;
+    border-radius: 3px;
+    padding: 22px 24px;
+    margin-top: 20px;
+    background: #fff;
+    position: relative;
+  }
+
+  .offer-box-tag {
+    position: absolute;
+    top: -11px; left: 16px;
+    background: #3a7bbf;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 3px 12px;
+    border-radius: 2px;
+  }
+
+  .offer-box h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 17px;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+  }
+
+  .offer-box p {
+    font-size: 13.5px;
+    color: #555;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .offer-box strong { color: #1e2535; }
+
+  /* ── USE CARDS ── */
+  .use-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .use-card {
+    background: #ffffff;
+    border: 1.5px solid #e0e0e0;
+    border-top: 3px solid #3a7bbf;
+    padding: 16px 16px 14px;
+    border-radius: 2px;
+  }
+
+  .use-card .icon { font-size: 20px; margin-bottom: 7px; }
+
+  .use-card h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #1a1a1a;
+    margin-bottom: 5px;
+  }
+
+  .use-card p {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: #666;
+    margin: 0;
+  }
+
+  /* alternate top colors matching brand squares */
+  .use-card:nth-child(1) { border-top-color: #e03030; }
+  .use-card:nth-child(2) { border-top-color: #4aab3e; }
+  .use-card:nth-child(3) { border-top-color: #f5c520; }
+  .use-card:nth-child(4) { border-top-color: #3a7bbf; }
+
+  /* ── PRODUCT CARDS (matching "Project / Solution" style) ── */
+  .product-card {
+    background: #fff;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 14px;
+    display: flex;
+  }
+
+  .product-thumb {
+    width: 100px;
+    flex-shrink: 0;
+    background: #1e2535;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 8px;
+    text-align: center;
+    gap: 6px;
+  }
+
+  .product-thumb .icon { font-size: 30px; }
+
+  .product-thumb span {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.4;
+  }
+
+  .product-body {
+    padding: 14px 18px;
+    flex: 1;
+  }
+
+  .product-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #3a7bbf;
+    margin-bottom: 5px;
+  }
+
+  .product-body h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    color: #1a1a1a;
+    margin-bottom: 5px;
+    line-height: 1.3;
+  }
+
+  .product-body p {
+    font-size: 12.5px;
+    color: #666;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* ── STEPS ── */
+  .steps { margin-top: 20px; }
+
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .step:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .step-num {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #1e2535;
+    color: #f5c520;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .step-body h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #1a1a1a;
+    margin-bottom: 3px;
+  }
+
+  .step-body p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: #1e2535;
+    padding: 40px 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg,
+      #e03030 0% 25%,
+      #f5c520 25% 50%,
+      #4aab3e 50% 75%,
+      #3a7bbf 75% 100%
+    );
+  }
+
+  .cta-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 26px;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.25;
+  }
+
+  .cta-section p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.65;
+    margin-bottom: 26px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-btn {
+    display: block;
+    max-width: 310px;
+    margin: 0 auto 14px;
+    background: #3a7bbf;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 15px 28px;
+    text-decoration: none;
+    border-radius: 3px;
+  }
+
+  .cta-link-secondary {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    margin-top: 10px;
+  }
+
+  /* ── DEADLINE STRIP ── */
+  .deadline {
+    background: #f2f2f2;
+    padding: 12px 28px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .deadline p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 11.5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #555;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    padding: 24px 28px 20px;
+    background: #fff;
+  }
+
+  .footer-logo-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .footer-wordmark {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    color: #1a1a1a;
+  }
+
+  .footer p {
+    font-size: 11.5px;
+    color: #999;
+    line-height: 1.7;
+    margin-bottom: 2px;
+  }
+
+  .footer a { color: #3a7bbf; text-decoration: none; }
+
+  .footer-rule {
+    height: 1px;
+    background: #e8e8e8;
+    margin: 14px 0;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+
+  .social-chip {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #1e2535;
+    border: 1.5px solid #ccc;
+    padding: 4px 11px;
+    border-radius: 20px;
+    text-decoration: none;
+  }
+
+  @media (max-width: 480px) {
+    .hero-headline { font-size: 28px; }
+    .logo-bar { padding: 14px 18px; }
+    .hero-bar, .section, .cta-section, .footer { padding-left: 18px; padding-right: 18px; }
+    .section-header { margin-left: -18px; margin-right: -18px; }
+    .use-grid { grid-template-columns: 1fr; }
+    .product-card { flex-direction: column; }
+    .product-thumb { width: 100%; height: 70px; flex-direction: row; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- LOGO BAR -->
+  <div class="logo-bar">
+    <div class="logo-left">
+      <div class="logo-squares">
+        <div class="sq sq-r"></div>
+        <div class="sq sq-y"></div>
+        <div class="sq sq-g"></div>
+        <div class="sq sq-b"></div>
+      </div>
+      <div>
+        <div class="logo-wordmark">StoneyCreek<span style="color:#3a7bbf; font-size:28px; line-height:0; vertical-align:middle;">.</span></div>
+        <div class="logo-tagline">Color Your Recognition™</div>
+      </div>
+    </div>
+    <div class="logo-right">
+      <p>SAGE 53849 · ASI 89860<br>PPAI 113068</p>
+      <div class="made-usa-tag">Made in the USA</div>
+    </div>
+  </div>
+
+  <!-- HERO BAR -->
+  <div class="hero-bar">
+    <div class="hero-eyebrow">Distributor Exclusive · Summer 2026</div>
+    <div class="hero-headline">See It Before<br>You <em>Order It.</em></div>
+    <p class="hero-sub">This summer we're offering free virtual renderings on every custom order — so your clients see exactly what their cast stone piece looks like before production begins.</p>
+    <div class="hero-badge">Free Renderings · Now Through Aug 31, 2026</div>
+  </div>
+
+  <div class="color-bar"></div>
+
+  <!-- INTRO NOTE -->
+  <div class="intro-note">
+    <p><strong>For our distributor partners:</strong> No cost, no obligation. Send us a concept — logo, idea, or rough sketch — and we'll send back a photorealistic rendering ready to show your client.</p>
+  </div>
+
+  <!-- WHAT IS IT -->
+  <div class="section">
+    <div class="section-header">
+      <div class="dot-row">
+        <div class="dot" style="background:#e03030"></div>
+        <div class="dot" style="background:#f5c520"></div>
+        <div class="dot" style="background:#4aab3e"></div>
+        <div class="dot" style="background:#3a7bbf"></div>
+      </div>
+      <h3>What's Included</h3>
+    </div>
+    <h2>What Is a Virtual Rendering?</h2>
+    <p>Think of it as a sneak peek in stone. We create a photorealistic digital mockup of your client's custom cast stone piece — showing exactly how it will look in their chosen color, texture, and finish — before a single mold is poured.</p>
+    <p>No surprises. No back-and-forth. Just a beautiful visual your client can approve on the spot.</p>
+
+    <div class="offer-box">
+      <div class="offer-box-tag">Summer Offer</div>
+      <h3>Free Virtual Rendering on Any Custom Order</h3>
+      <p>Available now through <strong>August 31, 2026</strong>. Submit your client's concept and we'll turn around a full rendering fast — ready to present and close.</p>
+    </div>
+  </div>
+
+  <!-- USE CASES -->
+  <div class="section section-gray">
+    <div class="section-header">
+      <div class="dot-row">
+        <div class="dot" style="background:#e03030"></div>
+        <div class="dot" style="background:#f5c520"></div>
+        <div class="dot" style="background:#4aab3e"></div>
+        <div class="dot" style="background:#3a7bbf"></div>
+      </div>
+      <h3>Summer Opportunities</h3>
+    </div>
+    <h2>What's Selling Right Now</h2>
+    <p>Summer is packed with events that call for meaningful recognition. Here are four categories your clients are buying this season:</p>
+
+    <div class="use-grid">
+      <div class="use-card">
+        <div class="icon">⛳</div>
+        <h4>Golf Tournaments</h4>
+        <p>Custom stone trophies and keepsakes for charity scrambles, corporate outings, and club championships.</p>
+      </div>
+      <div class="use-card">
+        <div class="icon">🏗️</div>
+        <h4>Groundbreakings</h4>
+        <p>Ceremonial cast stone gifts that mark construction milestones and project kickoffs in a lasting way.</p>
+      </div>
+      <div class="use-card">
+        <div class="icon">🇺🇸</div>
+        <h4>America 250</h4>
+        <p>The nation turns 250 this year. Patriotic commemoratives made right here in Iowa — a natural fit.</p>
+      </div>
+      <div class="use-card">
+        <div class="icon">🌟</div>
+        <h4>Employee Recognition</h4>
+        <p>End-of-Q2 service awards, milestone gifts, and sales incentives for summer all-hands events.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT SPOTLIGHTS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="dot-row">
+        <div class="dot" style="background:#e03030"></div>
+        <div class="dot" style="background:#f5c520"></div>
+        <div class="dot" style="background:#4aab3e"></div>
+        <div class="dot" style="background:#3a7bbf"></div>
+      </div>
+      <h3>Featured Concepts</h3>
+    </div>
+    <h2>Give Your Client Something to Say Yes To</h2>
+    <p>Our custom shop brings nearly any idea to life in cast stone. Three concepts moving well this summer:</p>
+
+    <div class="product-card">
+      <div class="product-thumb">
+        <div class="icon">⛳</div>
+        <span>Golf<br>Season</span>
+      </div>
+      <div class="product-body">
+        <div class="product-label">Summer Event</div>
+        <h4>Golf-Themed Stone Awards</h4>
+        <p>Custom tournament trophies to bag tags — handcrafted cast stone pieces that stand out long after the round ends.</p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-thumb">
+        <div class="icon">🇺🇸</div>
+        <span>America<br>250</span>
+      </div>
+      <div class="product-body">
+        <div class="product-label">Limited 2026</div>
+        <h4>America 250 Commemoratives</h4>
+        <p>Mark 250 years of American history with a piece made in Iowa — patriotic, permanent, and proudly USA-made.</p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-thumb">
+        <div class="icon">🏛️</div>
+        <span>Ground<br>Breaking</span>
+      </div>
+      <div class="product-body">
+        <div class="product-label">Events & Milestones</div>
+        <h4>Groundbreaking & Dedication Gifts</h4>
+        <p>Commemorate a construction or facility milestone with a cast stone keepsake built to last decades.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="section section-gray">
+    <div class="section-header">
+      <div class="dot-row">
+        <div class="dot" style="background:#e03030"></div>
+        <div class="dot" style="background:#f5c520"></div>
+        <div class="dot" style="background:#4aab3e"></div>
+        <div class="dot" style="background:#3a7bbf"></div>
+      </div>
+      <h3>Simple Process</h3>
+    </div>
+    <h2>Three Steps to a Closed Order</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h4>Send Us the Concept</h4>
+          <p>Email your client's logo, idea, or inspiration. Even a rough description is enough to get started.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h4>We Build the Rendering</h4>
+          <p>Our design team creates a photorealistic preview — colors, textures, engraving, and all — ready to present.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h4>Present It &amp; Close</h4>
+          <p>Show the rendering. When clients can see it in stone, they say yes. We handle production from there.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>Ready to Request Your<br>Free Virtual Rendering?</h2>
+    <p>Submit your concept today and we'll get your rendering back to you fast. Offer available through August 31, 2026.</p>
+    <a href="https://www.stoneycreekus.com/Request-Virtual-Rendering.htm" class="cta-btn">
+      Click Here to Request a Free Rendering
+    </a>
+    <a href="https://www.stoneycreekus.com/featured-items-ideas.htm" class="cta-link-secondary">
+      Browse the Cool Ideas Gallery →
+    </a>
+  </div>
+
+  <!-- DEADLINE -->
+  <div class="deadline">
+    <p>Free rendering offer valid through August 31, 2026 &nbsp;·&nbsp; Made in the USA Since 1986</p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-logo-row">
+      <div class="logo-squares" style="width:22px;">
+        <div class="sq sq-r" style="width:10px;height:10px;"></div>
+        <div class="sq sq-y" style="width:10px;height:10px;"></div>
+        <div class="sq sq-g" style="width:10px;height:10px;"></div>
+        <div class="sq sq-b" style="width:10px;height:10px;"></div>
+      </div>
+      <div class="footer-wordmark">StoneyCreek</div>
+    </div>
+    <p>SAGE 53849 &nbsp;·&nbsp; ASI 89860 &nbsp;·&nbsp; PPAI 113068</p>
+    <p>📞 <a href="tel:8006886264">800-688-6264</a> &nbsp;·&nbsp; <a href="mailto:BJ@stoneycreekus.com">BJ@stoneycreekus.com</a></p>
+    <p><a href="https://www.stoneycreekus.com">www.stoneycreekus.com</a></p>
+    <div class="footer-rule"></div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/StoneyCreekUS" class="social-chip">Facebook</a>
+      <a href="https://www.linkedin.com/company/stoneycreek" class="social-chip">LinkedIn</a>
+      <a href="https://www.instagram.com/stoneycreek_awards/" class="social-chip">Instagram</a>
+      <a href="https://www.youtube.com/user/StoneyCreekUS" class="social-chip">YouTube</a>
+    </div>
+    <div class="footer-rule"></div>
+    <p style="font-size:11px; color:#bbb;">You are receiving this as a valued StoneyCreek distributor partner. <a href="#" style="color:#bbb;">Unsubscribe</a>.</p>
+  </div>
+
+</div>
+</body>
+</html>
